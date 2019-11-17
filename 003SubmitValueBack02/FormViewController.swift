@@ -39,11 +39,20 @@ class FormViewController: UIViewController {
        /*
         * AppDelegate를 이용하여 데이터를 저장 가져오기
         */
-        let ad = UIApplication.shared.delegate as? AppDelegate
+//        let ad = UIApplication.shared.delegate as? AppDelegate
+//
+//        ad?.paramEmail = self.email.text
+//        ad?.paramUpdate = self.isUpdate.isOn
+//        ad?.paramInterval = self.interval.value
+//
+        /*
+         * UserDefault를 이용하여 데이터를 저장 가져오기
+         */
+        let ud = UserDefaults.standard
         
-        ad?.paramEmail = self.email.text
-        ad?.paramUpdate = self.isUpdate.isOn
-        ad?.paramInterval = self.interval.value
+        ud.set(self.email.text, forKey: "email")
+        ud.set(self.isUpdate.isOn, forKey: "isUpdate")
+        ud.set(self.interval.value, forKey: "interval")
         
         
         //이전화면으로

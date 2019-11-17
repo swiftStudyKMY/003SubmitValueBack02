@@ -63,6 +63,25 @@ class ViewController: UIViewController {
         if let interval = ad?.paramInterval {
             resInterval.text = "\(Int(interval))분마다"
         }
+        /*
+         * UserDefault를 이용하여 데이터를 저장 가져오기
+         */
+        let ud = UserDefaults.standard
+        
+//        if let email = ud.string(forKey: "email") {
+//            resEmail.text = email
+//        }
+        
+        if let email = ud.object(forKey: "email") as? String {
+            resEmail.text = email
+        }
+
+        let update = ud.bool(forKey: "isUpdate")
+        resUpdate.text = update == true ? "자동갱신":"자동갱신안함"
+        
+
+        let interval = ud.double(forKey: "interval")
+        resInterval.text = "\(Int(interval))분마다"
         
         
     }
