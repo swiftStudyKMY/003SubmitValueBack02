@@ -26,15 +26,15 @@ class ViewController: UIViewController {
     
     var paramInterval : Double?
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        NSLog("viewDidLoad call");
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear call");
+        NSLog("viewWillAppear call");
         if let email = paramEmail {
             resEmail.text = email
         }
@@ -48,7 +48,10 @@ class ViewController: UIViewController {
         }
         
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("viewDidAppear call");
+    }
 
 }
 

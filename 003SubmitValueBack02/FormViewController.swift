@@ -17,8 +17,8 @@ class FormViewController: UIViewController {
     
     @IBOutlet var interval: UIStepper!
     
-    @IBAction func onSubmit(_ sender: AnyObject) {
-        
+    @IBAction func onSubmit(_ sender: Any) {
+        NSLog("onSubmit click")
         //UIViewController return type
         let preVC = self.presentingViewController
         
@@ -27,10 +27,18 @@ class FormViewController: UIViewController {
         guard let vc = preVC as? ViewController else {
             return
         }
+        
+        print("\(email.text)")
+        print("\(interval.value)")
+        NSLog("1")
         //value setting
         vc.paramEmail = self.email.text
         vc.paramUpdate = self.isUpdate.isOn
         vc.paramInterval = self.interval.value
+        
+       
+        
+        
         
         //이전화면으로
         self.presentingViewController?.dismiss(animated: true)
