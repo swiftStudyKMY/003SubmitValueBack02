@@ -32,12 +32,18 @@ class FormViewController: UIViewController {
         print("\(interval.value)")
         NSLog("1")
         //value setting
-        vc.paramEmail = self.email.text
-        vc.paramUpdate = self.isUpdate.isOn
-        vc.paramInterval = self.interval.value
+//        vc.paramEmail = self.email.text
+//        vc.paramUpdate = self.isUpdate.isOn
+//        vc.paramInterval = self.interval.value
         
-       
+       /*
+        * AppDelegate를 이용하여 데이터를 저장 가져오기
+        */
+        let ad = UIApplication.shared.delegate as? AppDelegate
         
+        ad?.paramEmail = self.email.text
+        ad?.paramUpdate = self.isUpdate.isOn
+        ad?.paramInterval = self.interval.value
         
         
         //이전화면으로
